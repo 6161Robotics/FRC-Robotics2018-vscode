@@ -3,3 +3,9 @@ Visual Studio Code version of [FRC-Robotics2018](https://github.com/6161Robotics
 
 
 This repo is for testing the 2018 code in a 2019 roborio.
+ 
+ This is another stupid change
+ 
+
+ Blake's first commit
+ 
