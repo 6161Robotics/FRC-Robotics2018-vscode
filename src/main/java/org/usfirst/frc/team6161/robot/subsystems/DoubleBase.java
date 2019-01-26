@@ -19,35 +19,51 @@ public class DoubleBase extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-private DoubleSolenoid Solenoid;
+  // You should lower case the instance name;
+  // A 'Solenoid' instance name can be confused
+  // with the Solenoid class in the WPI library.
+  private DoubleSolenoid solenoid;
 
-	public void init(){
-		Solenoid = RobotMap.exampleDouble;
-		
-		
-		
-	}
-  
+  /**
+   * This is the constructor. Constructors are always guaranteed to get called
+   * first so it'a good place to initialize objects used in the class.
+   */
+  public DoubleBase() {
+    // solenoid = RobotMap.exampleDouble;
+    // this (below) is a better way to instantiate
+    // the object.
+    solenoid = new DoubleSolenoid(4, 2);
+  }
 
+  // init() never gets called because it
+  // is not part of the wpilibj libary; in
+  // other words, System does not have a init().
+  // public void init() {
+  // Solenoid = RobotMap.exampleDouble;
+
+  // }
 
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
   }
-public void InSole(){
-  Solenoid.set(DoubleSolenoid.Value.kForward);
-  
 
-}
+  public void InSole() {
+    solenoid.set(DoubleSolenoid.Value.kForward);
 
-public void OutSole(){
-  
-Solenoid.set(DoubleSolenoid.Value.kReverse);
-}
+  }
 
-public void OffSole(){
-  Solenoid.set(DoubleSolenoid.Value.kOff);
-}
+  public void OutSole() {
+    // *** A NullPointerException occurred here
+    // The Selenoid object has not been instantiated
+    // (set to a new DoubleSeleoid(<args here>)).
+    // The best way to do that is in the constructor (see above)
+    solenoid.set(DoubleSolenoid.Value.kReverse);
+  }
+
+  public void OffSole() {
+    solenoid.set(DoubleSolenoid.Value.kOff);
+  }
 
 }

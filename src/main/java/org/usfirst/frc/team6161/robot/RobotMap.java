@@ -22,81 +22,75 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
  * floating around.
  */
 public class RobotMap {
-	// For example to map the left and right motors, you could define the
-	// following variables to use with your drivetrain subsystem.
-	// public static int leftMotor = 1;
-	// public static int rightMotor = 2;
+    // For example to map the left and right motors, you could define the
+    // following variables to use with your drivetrain subsystem.
+    // public static int leftMotor = 1;
+    // public static int rightMotor = 2;
 
-	// If you are using multiple modules, make sure to define both the port
-	// number and the module. For example you with a rangefinder:
-	// public static int rangefinderPort = 1;
-	// public static int rangefinderModule = 1;
-	public static SpeedController driveBaseRightFront;
+    // If you are using multiple modules, make sure to define both the port
+    // number and the module. For example you with a rangefinder:
+    // public static int rangefinderPort = 1;
+    // public static int rangefinderModule = 1;
+    public static SpeedController driveBaseRightFront;
     public static SpeedController driveBaseRightRear;
     public static SpeedController driveBaseLeftFront;
     public static SpeedController driveBaseLeftRear;
     public static DifferentialDrive driveBaseThe4Motors;
     public static SpeedController dumpBaseDumpMotor;
     public static SpeedController sliderBaseVerticalMotor;
-    public static SpeedController sliderBaseHorizontalMotor; 
+    public static SpeedController sliderBaseHorizontalMotor;
     public static SpeedController armsBaseRightMotor;
     public static SpeedController armsBaseLeftMotor;
-    public static DoubleSolenoid exampleDouble;
-    
-    
-    
-    
+    // public static DoubleSolenoid exampleDouble;
+
     public static void init() {
-    	 driveBaseRightFront = new Spark(1);
-//         LiveWindow.addActuator("DriveBase", "RightFront", (Spark) driveBaseRightFront);
-         
-         driveBaseRightRear = new Victor(0);
-//         LiveWindow.addActuator("DriveBase", "RightRear", (Spark) driveBaseRightRear);
+        driveBaseRightFront = new Spark(1);
+        // LiveWindow.addActuator("DriveBase", "RightFront", (Spark)
+        // driveBaseRightFront);
 
-         SpeedControllerGroup rightSpeedController = new SpeedControllerGroup(driveBaseRightFront, driveBaseRightRear);
-         
-         
-         
-         driveBaseLeftFront = new Spark(3);
-//         LiveWindow.addActuator("DriveBase", "LeftFront", (Spark) driveBaseLeftFront);
-         
-         driveBaseLeftRear = new Victor(2);
-//         LiveWindow.addActuator("DriveBase", "LeftRear", (Spark) driveBaseLeftRear);
-  
-         SpeedControllerGroup leftSpeedController = new SpeedControllerGroup(driveBaseLeftFront, driveBaseLeftRear);
+        driveBaseRightRear = new Victor(0);
+        // LiveWindow.addActuator("DriveBase", "RightRear", (Spark) driveBaseRightRear);
 
-       
-         
-         driveBaseThe4Motors = new DifferentialDrive(leftSpeedController, rightSpeedController);
-         
-         driveBaseThe4Motors.setSafetyEnabled(false);
-         driveBaseThe4Motors.setExpiration(0.1);//0.1 default
-// TODO: update to new API         driveBaseThe4Motors.setSensitivity(0.5);
-         driveBaseThe4Motors.setMaxOutput(0.9);
-         
-//         driveBaseThe4Motors. setInvertedMotor(DifferentialDrive.MotorType.kFrontLeft, true);
-//         driveBaseThe4Motors.setInvertedMotor(DifferentialDrive.MotorType.kRearLeft, true);
-         leftSpeedController.setInverted(false);
-         
-//         driveBaseThe4Motors.setInvertedMotor(DifferentialDrive.MotorType.kFrontRight, true);
-//         driveBaseThe4Motors.setInvertedMotor(DifferentialDrive.MotorType.kRearRight, true);
-         rightSpeedController.setInverted(false);
-         
-         sliderBaseVerticalMotor = new Spark(5);
-         sliderBaseHorizontalMotor = new VictorSP(4);
-         
-         armsBaseRightMotor = new Spark(6);
-         armsBaseLeftMotor = new Spark(7);
+        SpeedControllerGroup rightSpeedController = new SpeedControllerGroup(driveBaseRightFront, driveBaseRightRear);
 
+        driveBaseLeftFront = new Spark(3);
+        // LiveWindow.addActuator("DriveBase", "LeftFront", (Spark) driveBaseLeftFront);
 
+        driveBaseLeftRear = new Victor(2);
+        // LiveWindow.addActuator("DriveBase", "LeftRear", (Spark) driveBaseLeftRear);
 
-         exampleDouble = new DoubleSolenoid(0, 1);
+        SpeedControllerGroup leftSpeedController = new SpeedControllerGroup(driveBaseLeftFront, driveBaseLeftRear);
 
+        driveBaseThe4Motors = new DifferentialDrive(leftSpeedController, rightSpeedController);
 
+        driveBaseThe4Motors.setSafetyEnabled(false);
+        driveBaseThe4Motors.setExpiration(0.1);// 0.1 default
+        // TODO: update to new API driveBaseThe4Motors.setSensitivity(0.5);
+        driveBaseThe4Motors.setMaxOutput(0.9);
 
-         
-         // TODO: Get rid of this eventually since we do not need this functionality
-     //    dumpBaseDumpMotor = new Victor(6);
-//         LiveWindow.addActuator("RoombaBase", "RoombaMotor", (Victor) roombaBaseRoombaMotor);
+        // driveBaseThe4Motors. setInvertedMotor(DifferentialDrive.MotorType.kFrontLeft,
+        // true);
+        // driveBaseThe4Motors.setInvertedMotor(DifferentialDrive.MotorType.kRearLeft,
+        // true);
+        leftSpeedController.setInverted(false);
+
+        // driveBaseThe4Motors.setInvertedMotor(DifferentialDrive.MotorType.kFrontRight,
+        // true);
+        // driveBaseThe4Motors.setInvertedMotor(DifferentialDrive.MotorType.kRearRight,
+        // true);
+        rightSpeedController.setInverted(false);
+
+        sliderBaseVerticalMotor = new Spark(5);
+        sliderBaseHorizontalMotor = new VictorSP(4);
+
+        armsBaseRightMotor = new Spark(6);
+        armsBaseLeftMotor = new Spark(7);
+
+        // exampleDouble = new DoubleSolenoid(0, 1);
+
+        // TODO: Get rid of this eventually since we do not need this functionality
+        // dumpBaseDumpMotor = new Victor(6);
+        // LiveWindow.addActuator("RoombaBase", "RoombaMotor", (Victor)
+        // roombaBaseRoombaMotor);
     }
 }
