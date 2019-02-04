@@ -50,7 +50,7 @@ public class RobotMap {
     	 driveBaseRightFront = new Spark(1);
 //         LiveWindow.addActuator("DriveBase", "RightFront", (Spark) driveBaseRightFront);
          
-         driveBaseRightRear = new Victor(0);
+         driveBaseRightRear = new Spark(0);
 //         LiveWindow.addActuator("DriveBase", "RightRear", (Spark) driveBaseRightRear);
 
          SpeedControllerGroup rightSpeedController = new SpeedControllerGroup(driveBaseRightFront, driveBaseRightRear);
@@ -60,7 +60,7 @@ public class RobotMap {
          driveBaseLeftFront = new Spark(3);
 //         LiveWindow.addActuator("DriveBase", "LeftFront", (Spark) driveBaseLeftFront);
          
-         driveBaseLeftRear = new Victor(2);
+         driveBaseLeftRear = new Spark(2);
 //         LiveWindow.addActuator("DriveBase", "LeftRear", (Spark) driveBaseLeftRear);
   
          SpeedControllerGroup leftSpeedController = new SpeedControllerGroup(driveBaseLeftFront, driveBaseLeftRear);
