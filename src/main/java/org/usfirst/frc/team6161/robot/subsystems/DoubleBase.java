@@ -10,6 +10,7 @@ package org.usfirst.frc.team6161.robot.subsystems;
 import org.usfirst.frc.team6161.robot.*;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -19,11 +20,11 @@ public class DoubleBase extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-private DoubleSolenoid Solenoid;
+private DoubleSolenoid firstSolenoid;
 
 	public void init(){
-		Solenoid = RobotMap.exampleDouble;
-		
+		firstSolenoid = RobotMap.pvcSolenoid;
+		firstSolenoid.set(Value.kOff);
 		
 		
 	}
@@ -36,18 +37,18 @@ private DoubleSolenoid Solenoid;
     // setDefaultCommand(new MySpecialCommand());
   }
 public void InSole(){
-  Solenoid.set(DoubleSolenoid.Value.kForward);
+  firstSolenoid.set(Value.kForward);
   
 
 }
 
 public void OutSole(){
   
-Solenoid.set(DoubleSolenoid.Value.kReverse);
+firstSolenoid.set(Value.kReverse);
 }
 
 public void OffSole(){
-  Solenoid.set(DoubleSolenoid.Value.kOff);
+  firstSolenoid.set(Value.kOff);
 }
 
 }

@@ -79,6 +79,7 @@ public class Robot extends IterativeRobot {
 		DumpBase.init();
 		SliderBase.init();
 		ArmsBase.init();
+		DoubleBase.init();
 //		roombaBase.init();
 		// call other subsystem inits here
 			}

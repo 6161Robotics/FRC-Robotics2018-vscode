@@ -41,7 +41,7 @@ public class RobotMap {
     public static SpeedController sliderBaseHorizontalMotor; 
     public static SpeedController armsBaseRightMotor;
     public static SpeedController armsBaseLeftMotor;
-    public static DoubleSolenoid exampleDouble;
+    public static DoubleSolenoid pvcSolenoid;
     
     
     
@@ -82,15 +82,9 @@ public class RobotMap {
 //         driveBaseThe4Motors.setInvertedMotor(DifferentialDrive.MotorType.kRearRight, true);
          rightSpeedController.setInverted(false);
          
-         sliderBaseVerticalMotor = new Spark(5);
-         sliderBaseHorizontalMotor = new VictorSP(4);
-         
-         armsBaseRightMotor = new Spark(6);
-         armsBaseLeftMotor = new Spark(7);
 
 
-
-         exampleDouble = new DoubleSolenoid(0, 1);
+         pvcSolenoid = new DoubleSolenoid(0, 1);
 
 
 
