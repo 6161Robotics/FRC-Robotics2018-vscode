@@ -7,7 +7,8 @@
 
 package org.usfirst.frc.team6161.robot;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
@@ -41,8 +42,9 @@ public class RobotMap {
     public static SpeedController sliderBaseHorizontalMotor; 
     public static SpeedController armsBaseRightMotor;
     public static SpeedController armsBaseLeftMotor;
-    public static DoubleSolenoid pvcSolenoid;
-    
+    public static Solenoid pvcSolenoid;
+    public static Solenoid eightyTwentySolenoid;
+    public static Compressor c;
     
     
     
@@ -83,8 +85,9 @@ public class RobotMap {
          rightSpeedController.setInverted(false);
          
 
-
-         pvcSolenoid = new DoubleSolenoid(0, 1);
+         c = new Compressor(0);
+         pvcSolenoid = new Solenoid(0);
+         eightyTwentySolenoid = new Solenoid(1);
 
 
 

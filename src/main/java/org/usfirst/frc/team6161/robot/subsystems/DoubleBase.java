@@ -9,8 +9,10 @@ package org.usfirst.frc.team6161.robot.subsystems;
 
 import org.usfirst.frc.team6161.robot.*;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
+import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -19,12 +21,15 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class DoubleBase extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-
-private DoubleSolenoid firstSolenoid;
+private Compressor c;
+private Solenoid firstSolenoid;
+private Solenoid secondSolenoid;
 
 	public void init(){
-		firstSolenoid = RobotMap.pvcSolenoid;
-		firstSolenoid.set(Value.kOff);
+    
+    firstSolenoid = RobotMap.pvcSolenoid;
+    secondSolenoid = RobotMap.eightyTwentySolenoid;
+		//firstSolenoid.set(Value.kOff);
 		
 		
 	}
@@ -33,22 +38,24 @@ private DoubleSolenoid firstSolenoid;
 
   @Override
   public void initDefaultCommand() {
+    //c.setClosedLoopControl(true);
+    
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
   }
 public void InSole(){
-  firstSolenoid.set(Value.kForward);
+  firstSolenoid.set(false);
   
 
 }
 
 public void OutSole(){
   
-firstSolenoid.set(Value.kReverse);
+firstSolenoid.set(true);
 }
 
 public void OffSole(){
-  firstSolenoid.set(Value.kOff);
+  //firstSolenoid.set(Value.kOff);
 }
 
 }
