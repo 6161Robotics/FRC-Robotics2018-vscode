@@ -78,11 +78,11 @@ public class RobotMap {
          
 //         driveBaseThe4Motors. setInvertedMotor(DifferentialDrive.MotorType.kFrontLeft, true);
 //         driveBaseThe4Motors.setInvertedMotor(DifferentialDrive.MotorType.kRearLeft, true);
-         leftSpeedController.setInverted(false);
+         leftSpeedController.setInverted(true);
          
 //         driveBaseThe4Motors.setInvertedMotor(DifferentialDrive.MotorType.kFrontRight, true);
 //         driveBaseThe4Motors.setInvertedMotor(DifferentialDrive.MotorType.kRearRight, true);
-         rightSpeedController.setInverted(false);
+         rightSpeedController.setInverted(true);
          
 
          c = new Compressor(0);

@@ -56,7 +56,7 @@ public class DriveBase extends Subsystem {
     	}
 		Robot.driveBase.getRobotDrive().arcadeDrive(lastForward, lastTurn);
 				Before---^    	 */
-    	Robot.driveBase.getRobotDrive().arcadeDrive(lastForward, Robot.oi.theXbox.getRawAxis(4));
+    	Robot.driveBase.getRobotDrive().arcadeDrive(lastForward, -Robot.oi.theXbox.getRawAxis(4));
     }
    
 /*       double Kp = 0.03;
