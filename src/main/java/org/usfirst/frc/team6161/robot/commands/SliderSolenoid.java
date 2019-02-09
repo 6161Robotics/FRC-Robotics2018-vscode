@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class SliderSolenoid extends Command {
   public SliderSolenoid() {
-    requires(Robot.SolenoidBase);
+    requires(Robot.solenoidBase);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -21,13 +21,12 @@ public class SliderSolenoid extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.SolenoidBase.sliderOutSole();
+    Robot.solenoidBase.sliderOutSole();
   }
 
   // Make this return true when this Command no longer needs to run execute()

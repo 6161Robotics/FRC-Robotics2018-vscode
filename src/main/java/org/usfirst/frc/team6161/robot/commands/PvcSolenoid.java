@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class PvcSolenoid extends Command {
   public PvcSolenoid() {
-    requires(Robot.SolenoidBase);
+    requires(Robot.solenoidBase);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -27,7 +27,7 @@ public class PvcSolenoid extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.SolenoidBase.pvcInSole();
+    Robot.solenoidBase.pvcInSole();
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -39,7 +39,7 @@ public class PvcSolenoid extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.SolenoidBase.pvcOutSole();
+    Robot.solenoidBase.pvcOutSole();
   }
 
   // Called when another command which requires one or more of the same

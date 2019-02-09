@@ -7,7 +7,7 @@
 
 package org.usfirst.frc.team6161.robot;
 
-import edu.wpi.first.wpilibj.CameraServer;
+import edu.wpi.first.cameraserver.*;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.Timer;
@@ -45,7 +45,7 @@ public class Robot extends IterativeRobot {
 	public static final SliderBase SliderBase = new SliderBase();
 	public static final DumpBase DumpBase = new DumpBase();
 	public static final ArmsBase ArmsBase = new ArmsBase();
-	public static final SolenoidBase SolenoidBase = new SolenoidBase();
+	public static final SolenoidBase solenoidBase = new SolenoidBase();
 //	public static final roombaBase roombaBase = new roombaBase();
 	public static OI oi;
 	
@@ -79,7 +79,7 @@ public class Robot extends IterativeRobot {
 		DumpBase.init();
 		SliderBase.init();
 		ArmsBase.init();
-		SolenoidBase.init();
+		solenoidBase.init();
 //		roombaBase.init();
 		// call other subsystem inits here
 			}

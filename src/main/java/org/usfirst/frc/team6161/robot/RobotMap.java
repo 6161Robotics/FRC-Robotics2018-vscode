@@ -44,7 +44,7 @@ public class RobotMap {
     public static SpeedController armsBaseLeftMotor;
     public static Solenoid pvcSolenoid;
     public static Solenoid eightyTwentySolenoid;
-    public static Compressor c;
+    public static Compressor compressor;
     
     
     
@@ -85,7 +85,7 @@ public class RobotMap {
          rightSpeedController.setInverted(true);
          
 
-         c = new Compressor(0);
+         compressor = new Compressor(0);
          pvcSolenoid = new Solenoid(0);
          eightyTwentySolenoid = new Solenoid(1);
 

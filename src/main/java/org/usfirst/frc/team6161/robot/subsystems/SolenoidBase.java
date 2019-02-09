@@ -18,23 +18,23 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  * Add your docs here.
  */
-public class SolenoidBase extends Subsystem {
+  public class SolenoidBase extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-private Compressor c;
+private Compressor compressor;
 private Solenoid firstSolenoid;
 private Solenoid secondSolenoid;
+ 
 
-	public void init(){
-    
+  public void init() {
     firstSolenoid = RobotMap.pvcSolenoid;
     secondSolenoid = RobotMap.eightyTwentySolenoid;
-		//firstSolenoid.set(Value.kOff);
-		
-		
-	}
-  
 
+    //firstSolenoid.set(Value.kOff);
+    compressor = RobotMap.compressor;
+    compressor.setClosedLoopControl(true);
+		
+  }
 
   @Override
   public void initDefaultCommand() {

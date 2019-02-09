@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class Defense extends Command {
   public Defense() {
-    requires(Robot.SolenoidBase);
+    requires(Robot.solenoidBase);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -26,7 +26,7 @@ public class Defense extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.SolenoidBase.sliderInSole();
+    Robot.solenoidBase.sliderInSole();
   }
 
   // Make this return true when this Command no longer needs to run execute()
