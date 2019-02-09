@@ -42,9 +42,7 @@ public class RobotMap {
     public static SpeedController sliderBaseHorizontalMotor; 
     public static SpeedController armsBaseRightMotor;
     public static SpeedController armsBaseLeftMotor;
-    public static Solenoid pvcSolenoid;
-    public static Solenoid eightyTwentySolenoid;
-    public static Compressor compressor;
+
     
     
     
@@ -59,10 +57,10 @@ public class RobotMap {
          
          
          
-         driveBaseLeftFront = new Spark(3);
+         driveBaseLeftFront = new Spark(2);
 //         LiveWindow.addActuator("DriveBase", "LeftFront", (Spark) driveBaseLeftFront);
          
-         driveBaseLeftRear = new Spark(2);
+         driveBaseLeftRear = new Spark(3);
 //         LiveWindow.addActuator("DriveBase", "LeftRear", (Spark) driveBaseLeftRear);
   
          SpeedControllerGroup leftSpeedController = new SpeedControllerGroup(driveBaseLeftFront, driveBaseLeftRear);
@@ -85,9 +83,7 @@ public class RobotMap {
          rightSpeedController.setInverted(true);
          
 
-         compressor = new Compressor(0);
-         pvcSolenoid = new Solenoid(0);
-         eightyTwentySolenoid = new Solenoid(1);
+         
 
 
 

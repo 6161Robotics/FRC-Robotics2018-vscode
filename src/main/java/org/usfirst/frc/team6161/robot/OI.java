@@ -64,17 +64,17 @@ public class OI {
 		theJoystick = new Joystick(1);
 		
 
-		joySlideBackwards = new JoystickButton(theXbox, 6);
+		joySlideBackwards = new JoystickButton(theXbox, 8);
         joySlideBackwards.whenPressed(new SliderSolenoid());
 		
-        joySlideForwards = new JoystickButton(theXbox, 5);
+        joySlideForwards = new JoystickButton(theXbox, 7);
         joySlideForwards.whenPressed(new Defense());  
         
-        joySlideUpwards = new JoystickButton(theXbox, 8);
+        joySlideUpwards = new JoystickButton(theXbox, 6);
         joySlideUpwards.whileHeld(new PvcSolenoid());
         
-       // joySlideDownwards = new JoystickButton(theXbox, 2);
-       // joySlideDownwards.whileHeld(new SlideDownwards(0.2));
+        joySlideDownwards = new JoystickButton(theXbox, 5);
+        joySlideDownwards.whileHeld(new PvcOut());
 		
         //joyIntake = new AxisButton(theXbox, Gamepad.Axes.RIGHT_TRIGGER.getNumber(), Constants.AXIS_BUTTON_THRESHHOLD);
         //joyIntake.whileHeld(new InSole());

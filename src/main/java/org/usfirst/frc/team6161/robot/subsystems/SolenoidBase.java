@@ -24,14 +24,14 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 private Compressor compressor;
 private Solenoid firstSolenoid;
 private Solenoid secondSolenoid;
- 
 
   public void init() {
-    firstSolenoid = RobotMap.pvcSolenoid;
-    secondSolenoid = RobotMap.eightyTwentySolenoid;
+    
+    firstSolenoid = new Solenoid(0);
+    secondSolenoid = new Solenoid(1);
 
     //firstSolenoid.set(Value.kOff);
-    compressor = RobotMap.compressor;
+    compressor = new Compressor(0);
     compressor.setClosedLoopControl(true);
 		
   }
@@ -44,14 +44,14 @@ private Solenoid secondSolenoid;
     // setDefaultCommand(new MySpecialCommand());
   }
 public void pvcInSole(){
-  firstSolenoid.set(false);
+  firstSolenoid.set(true);
   
 
 }
 
 public void pvcOutSole(){
   
-firstSolenoid.set(true);
+firstSolenoid.set(false);
 }
 
 /*public void OffSole(){
