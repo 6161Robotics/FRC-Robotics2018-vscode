@@ -11,9 +11,9 @@ import org.usfirst.frc.team6161.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class OutSole extends Command {
-  public OutSole() {
-    requires(Robot.DoubleBase);
+public class SliderSolenoid extends Command {
+  public SliderSolenoid() {
+    requires(Robot.SolenoidBase);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -27,7 +27,7 @@ public class OutSole extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.DoubleBase.OutSole();
+    Robot.SolenoidBase.sliderOutSole();
   }
 
   // Make this return true when this Command no longer needs to run execute()

@@ -45,7 +45,7 @@ public class Robot extends IterativeRobot {
 	public static final SliderBase SliderBase = new SliderBase();
 	public static final DumpBase DumpBase = new DumpBase();
 	public static final ArmsBase ArmsBase = new ArmsBase();
-	public static final DoubleBase DoubleBase = new DoubleBase();
+	public static final SolenoidBase SolenoidBase = new SolenoidBase();
 //	public static final roombaBase roombaBase = new roombaBase();
 	public static OI oi;
 	
@@ -79,7 +79,7 @@ public class Robot extends IterativeRobot {
 		DumpBase.init();
 		SliderBase.init();
 		ArmsBase.init();
-		DoubleBase.init();
+		SolenoidBase.init();
 //		roombaBase.init();
 		// call other subsystem inits here
 			}

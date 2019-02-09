@@ -18,7 +18,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  * Add your docs here.
  */
-public class DoubleBase extends Subsystem {
+public class SolenoidBase extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 private Compressor c;
@@ -43,19 +43,27 @@ private Solenoid secondSolenoid;
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
   }
-public void InSole(){
+public void pvcInSole(){
   firstSolenoid.set(false);
   
 
 }
 
-public void OutSole(){
+public void pvcOutSole(){
   
 firstSolenoid.set(true);
 }
 
-public void OffSole(){
-  //firstSolenoid.set(Value.kOff);
+/*public void OffSole(){
+*firstSolenoid.set(Value.kOff);
+}*/
+
+public void sliderInSole(){
+  secondSolenoid.set(false);
+}
+
+public void sliderOutSole(){
+  secondSolenoid.set(true);
 }
 
 }

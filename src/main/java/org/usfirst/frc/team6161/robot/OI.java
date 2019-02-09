@@ -65,13 +65,13 @@ public class OI {
 		
 
 		joySlideBackwards = new JoystickButton(theXbox, 6);
-        joySlideBackwards.whenPressed(new InSole());
+        joySlideBackwards.whenPressed(new SliderSolenoid());
 		
         joySlideForwards = new JoystickButton(theXbox, 5);
-        joySlideForwards.whenPressed(new OutSole());  
+        joySlideForwards.whenPressed(new Defense());  
         
-      //  joySlideUpwards = new JoystickButton(theXbox, 4);
-      //  joySlideUpwards.whileHeld(new SlideUpwards(0.2));
+        joySlideUpwards = new JoystickButton(theXbox, 8);
+        joySlideUpwards.whileHeld(new PvcSolenoid());
         
        // joySlideDownwards = new JoystickButton(theXbox, 2);
        // joySlideDownwards.whileHeld(new SlideDownwards(0.2));
