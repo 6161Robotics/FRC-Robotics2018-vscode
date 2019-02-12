@@ -24,11 +24,13 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 private Compressor compressor;
 private Solenoid firstSolenoid;
 private Solenoid secondSolenoid;
+private Solenoid thirdSolenoid;
 
   public void init() {
     
     firstSolenoid = new Solenoid(0);
     secondSolenoid = new Solenoid(1);
+    thirdSolenoid = new Solenoid(2);
 
     //firstSolenoid.set(Value.kOff);
     compressor = new Compressor(0);
@@ -64,6 +66,14 @@ public void sliderInSole(){
 
 public void sliderOutSole(){
   secondSolenoid.set(true);
+}
+
+public void backInSole(){
+  thirdSolenoid.set(false);
+}
+
+public void backOutSole(){
+  thirdSolenoid.set(true);
 }
 
 }

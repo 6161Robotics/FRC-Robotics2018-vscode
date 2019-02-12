@@ -83,11 +83,11 @@ public class OI {
 		//joyOuttake.whileHeld(new OutSole());
 		
 
-//        joyClimbUp = new JoystickButton(theJoystick, 6);
-//        joyClimbUp.whileHeld(new climberUp());
+        joyClimbUp = new JoystickButton(theXbox, 3);
+        joyClimbUp.whileHeld(new BackIn());
 		
-//        joyClimbDown = new JoystickButton(theJoystick, 5);
-//        joyClimbDown.whileHeld(new climberDown());
+        joyClimbDown = new JoystickButton(theXbox, 4);
+        joyClimbDown.whileHeld(new BackOut());
 		
 //        joyRoombaOut = new JoystickButton(theJoystick, 2);
 //        joyRoombaOut.whileHeld(new roombaOut());
