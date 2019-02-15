@@ -46,14 +46,14 @@ private Solenoid thirdSolenoid;
     // setDefaultCommand(new MySpecialCommand());
   }
 public void pvcInSole(){
-  firstSolenoid.set(true);
+  firstSolenoid.set(false);
   
 
 }
 
 public void pvcOutSole(){
   
-firstSolenoid.set(false);
+firstSolenoid.set(true);
 }
 
 /*public void OffSole(){
