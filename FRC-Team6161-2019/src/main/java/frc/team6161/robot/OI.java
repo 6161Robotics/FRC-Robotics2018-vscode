@@ -83,7 +83,7 @@ public class OI {
         //joyIntake.whileHeld(new InSole());
         
        joyOuttake = new AxisButton(theXbox, Gamepad.Axes.LEFT_TRIGGER.getNumber(), Constants.AXIS_BUTTON_THRESHHOLD);
-		joyOuttake.whenPressed(new ());
+		//joyOuttake.whenPressed(new ());
 		
 
         joyClimbUp = new JoystickButton(theXbox, 3);
