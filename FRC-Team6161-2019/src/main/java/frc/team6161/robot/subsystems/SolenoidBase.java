@@ -7,7 +7,7 @@
 
 package frc.team6161.robot.subsystems;
 
-import org.usfirst.frc.team6161.robot.*;
+import frc.team6161.robot.*;
 
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
