@@ -7,94 +7,197 @@
 
 package frc.team6161.robot;
 
+import edu.wpi.first.cameraserver.*;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.PowerDistributionPanel;
+import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+
+import frc.team6161.robot.subsystems.*;
+
+
+
 /**
  * The VM is configured to automatically run this class, and to call the
- * functions corresponding to each mode, as described in the IterativeRobot
+ * functions corresponding to each mode, as described in the TimedRobot
  * documentation. If you change the name of this class or the package after
- * creating this project, you must also update the build.gradle file in the
+ * creating this project, you must also update the build.properties file in the
  * project.
  */
 public class Robot extends IterativeRobot {
-  private static final String kDefaultAuto = "Default";
-  private static final String kCustomAuto = "My Auto";
-  private String m_autoSelected;
-  private final SendableChooser<String> m_chooser = new SendableChooser<>();
 
-  /**
-   * This function is run when the robot is first started up and should be used
-   * for any initialization code.
-   */
-  @Override
-  public void robotInit() {
-    m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
-    m_chooser.addOption("My Auto", kCustomAuto);
-    SmartDashboard.putData("Auto choices", m_chooser);
-  }
 
-  /**
-   * This function is called every robot packet, no matter the mode. Use this for
-   * items like diagnostics that you want ran during disabled, autonomous,
-   * teleoperated and test.
-   *
-   * <p>
-   * This runs after the mode specific periodic functions, but before LiveWindow
-   * and SmartDashboard integrated updating.
-   */
-  @Override
-  public void robotPeriodic() {
-  }
+	//	public static final ADIS16448_IMU imu = new ADIS16448_IMU();
+	public static final DriveBase driveBase = new DriveBase();
 
-  /**
-   * This autonomous (along with the chooser code above) shows how to select
-   * between different autonomous modes using the dashboard. The sendable chooser
-   * code works with the Java SmartDashboard. If you prefer the LabVIEW Dashboard,
-   * remove all of the chooser code and uncomment the getString line to get the
-   * auto name from the text box below the Gyro
-   *
-   * <p>
-   * You can add additional auto modes by adding additional comparisons to the
-   * switch structure below with additional strings. If using the SendableChooser
-   * make sure to add them to the chooser code above as well.
-   */
-  @Override
-  public void autonomousInit() {
-    m_autoSelected = m_chooser.getSelected();
-    // autoSelected = SmartDashboard.getString("Auto Selector",
-    // defaultAuto);
-    System.out.println("Auto selected: " + m_autoSelected);
-  }
+	public static final SolenoidBase solenoidBase = new SolenoidBase();
 
-  /**
-   * This function is called periodically during autonomous.
-   */
-  @Override
-  public void autonomousPeriodic() {
-    switch (m_autoSelected) {
-    case kCustomAuto:
-      // Put custom auto code here
-      break;
-    case kDefaultAuto:
-    default:
-      // Put default auto code here
-      break;
-    }
-  }
+	public static OI oi;
+	
+	PowerDistributionPanel pdp; 
+	Command autonomousCommand;
+	SendableChooser<Command> chooser = new SendableChooser<>();
+	
+	/**
+	 * This function is run when the robot is first started up and should be
+	 * used for any initialization code.
+	 */
+	@Override
+	public void robotInit() {
+		CameraServer.getInstance().startAutomaticCapture();
+		RobotMap.init();
+		oi = new OI();
+		pdp = new PowerDistributionPanel();
+		
 
-  /**
-   * This function is called periodically during operator control.
-   */
-  @Override
-  public void teleopPeriodic() {
-  }
 
-  /**
-   * This function is called periodically during test mode.
-   */
-  @Override
-  public void testPeriodic() {
-  }
+		
+		driveBase.init();
+		solenoidBase.init();
+
+		// call other subsystem inits here
+			}
+
+	@Override
+	public void robotPeriodic() {
+		
+/*	    SmartDashboard.putNumber("Gyro-X", imu.getAngleX());
+	    SmartDashboard.putNumber("Gyro-Y", imu.getAngleY());
+	    SmartDashboard.putNumber("Gyro-Z", imu.getAngleZ());
+
+	    
+	    SmartDashboard.putNumber("Accel-X", imu.getAccelX());
+	    SmartDashboard.putNumber("Accel-Y", imu.getAccelY());
+	    SmartDashboard.putNumber("Accel-Z", imu.getAccelZ());
+	    
+	    SmartDashboard.putNumber("Pitch", imu.getPitch());
+	    SmartDashboard.putNumber("Roll", imu.getRoll());
+	    SmartDashboard.putNumber("Yaw", imu.getYaw());
+	    
+	    SmartDashboard.putNumber("Pressure: ", imu.getBarometricPressure());
+	    SmartDashboard.putNumber("Temperature: ", imu.getTemperature()); 
+	*/
+
+
+
+		//boolean upButton = Robot.oi.getTheJoystick().getRawButton(4);
+		//boolean downButton = Robot.oi.getTheJoystick().getRawButton(2);
+		
+	//	boolean forwardButton = Robot.oi.getTheJoystick().getRawButton(3);
+//		boolean backwardButton = Robot.oi.getTheJoystick().getRawButton(1);
+		
+//		if (topVerticalLimitSwitch.get()) { // If the top limit switch is activated, we want to prevent Upwards button from being used
+//            upButton.setEnabled(false);
+//            downButton = Robot.oi.getTheJoystick().getRawButton(2);
+//		}
+//        else if(botVerticalLimitSwitch.get()) { // If the bottom limit switch is activated, we want to prevent Downwards button from being used
+//            downButton = false;
+//            upButton = Robot.oi.getTheJoystick().getRawButton(4);
+//        }
+//        RobotMap.sliderBaseVerticalMotor.set(output);
+        
+        
+        
+//		if (frontHorizontalLimitSwitch.get()) {// If the front limit switch is activated, we want to prevent Forwards button from being used
+//            forwardButton = false;
+//            backwardButton = Robot.oi.getTheJoystick().getRawButton(1);
+//		}
+//        else if(rearHorizontalLimitSwitch.get()) {// If the rear limit switch is activated, we want to prevent Backwards button from being used
+//            backwardButton = false;
+//            forwardButton = Robot.oi.getTheJoystick().getRawButton(3);
+//        }
+//        RobotMap.sliderBaseHorizontalMotor.set(output);
+		
+
+
+	}
+	
+	
+	/**
+	 * This function is called once each time the robot enters Disabled mode.
+	 * You can use it to reset any subsystem information you want to clear when
+	 * the robot is disabled.
+	 */
+
+
+	
+	@Override
+	public void disabledInit() {
+		//autonomousCommand.isCanceled();
+	}
+
+	@Override
+	public void disabledPeriodic() {
+		Scheduler.getInstance().run();
+	}
+
+	/**
+	 * This autonomous (along with the chooser code above) shows how to select
+	 * between different autonomous modes using the dashboard. The sendable
+	 * chooser code works with the Java SmartDashboard. If you prefer the
+	 * LabVIEW Dashboard, remove all of the chooser code and uncomment the
+	 * getString code to get the auto name from the text box below the Gyro
+	 *
+	 * <p>You can add additional auto modes by adding additional commands to the
+	 * chooser code above (like the commented example) or additional comparisons
+	 * to the switch structure below with additional strings & commands.
+	 */
+	@Override
+	public void autonomousInit() {
+
+		
+		autonomousCommand = chooser.getSelected();
+		
+		if (autonomousCommand != null)
+			autonomousCommand.start();
+	}
+
+	/**
+	 * This function is called periodically during autonomous.
+	 */
+	@Override
+	public void autonomousPeriodic() {
+		Scheduler.getInstance().run();
+	}
+
+	@Override
+	public void teleopInit() {
+		
+		if (autonomousCommand != null)
+			autonomousCommand.cancel();
+//		imu.reset();
+	}
+
+	/**
+	 * This function is called periodically during operator control.
+	 */
+	@Override
+	public void teleopPeriodic() {
+		Scheduler.getInstance().run();
+		
+		Robot.driveBase.drivewithXbox();
+		
+
+//		SmartDashboard.putBoolean("Front HE sensor", SliderBase.frontHorizontalLimitSwitch.get());
+
+//		//Brownout Protection
+//		if (pdp.getCurrent(0) > 60.0 ||
+//	    		pdp.getCurrent(1) > 60.0 ||
+//	    		pdp.getCurrent(2) > 60.0 ||
+//	    		pdp.getCurrent(3) > 60.0) {
+//	    		
+//			//---> modifies joystick inputs
+//	    	}
+		}
+
+	/**
+	 * This function is called periodically during test mode.
+	 */
+	@Override
+	public void testPeriodic() {
+	}
 }
