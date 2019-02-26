@@ -148,12 +148,9 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-
-		
-		autonomousCommand = chooser.getSelected();
 		
 		if (autonomousCommand != null)
-			autonomousCommand.start();
+		Robot.driveBase.drivewithXbox();
 	}
 
 	/**
@@ -168,7 +165,7 @@ public class Robot extends IterativeRobot {
 	public void teleopInit() {
 		
 		if (autonomousCommand != null)
-			autonomousCommand.cancel();
+		Robot.driveBase.drivewithXbox();
 //		imu.reset();
 	}
 
