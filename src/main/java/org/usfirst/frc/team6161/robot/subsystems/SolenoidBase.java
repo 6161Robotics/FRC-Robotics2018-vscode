@@ -25,14 +25,16 @@ private Compressor compressor;
 private Solenoid firstSolenoid;
 private Solenoid secondSolenoid;
 private Solenoid thirdSolenoid;
+private DoubleSolenoid fourthSolenoid;
 
   public void init() {
     
     firstSolenoid = new Solenoid(0);
     secondSolenoid = new Solenoid(1);
     thirdSolenoid = new Solenoid(2);
+    fourthSolenoid = new DoubleSolenoid(3, 4);
 
-    //firstSolenoid.set(Value.kOff);
+    //fourthSolenoid.set(Value.kOff);
     compressor = new Compressor(0);
     compressor.setClosedLoopControl(true);
 		
@@ -56,9 +58,17 @@ public void pvcOutSole(){
 firstSolenoid.set(true);
 }
 
-/*public void OffSole(){
-*firstSolenoid.set(Value.kOff);
-}*/
+public void frontInSole(){
+fourthSolenoid.set(DoubleSolenoid.Value.kReverse);
+}
+
+public void frontOutSole(){
+  fourthSolenoid.set(DoubleSolenoid.Value.kForward);
+  }
+
+public void offSole(){
+  fourthSolenoid.set(DoubleSolenoid.Value.kOff);
+    }
 
 public void sliderInSole(){
   secondSolenoid.set(false);

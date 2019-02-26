@@ -10,6 +10,7 @@ package org.usfirst.frc.team6161.robot;
 
 import org.usfirst.frc.team6161.robot.Gamepad;
 import org.usfirst.frc.team6161.robot.commands.*;
+import org.usfirst.frc.team6161.robot.commands.auto.AutoStraight;
 import org.usfirst.frc.team6161.robot.RobotMap;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -49,6 +50,8 @@ public class OI {
 
 	public JoystickButton joyClimbUp;
 	public JoystickButton joyClimbDown;
+	public JoystickButton joyClimbUpTwo;
+	public JoystickButton joyClimbDownTwo;
 	public JoystickButton joySlideForwards;
 	public JoystickButton joySlideBackwards;
 	public JoystickButton joySlideDownwards;
@@ -79,15 +82,24 @@ public class OI {
         //joyIntake = new AxisButton(theXbox, Gamepad.Axes.RIGHT_TRIGGER.getNumber(), Constants.AXIS_BUTTON_THRESHHOLD);
         //joyIntake.whileHeld(new InSole());
         
-      //  joyOuttake = new AxisButton(theXbox, Gamepad.Axes.LEFT_TRIGGER.getNumber(), Constants.AXIS_BUTTON_THRESHHOLD);
-		//joyOuttake.whileHeld(new OutSole());
+       joyOuttake = new AxisButton(theXbox, Gamepad.Axes.LEFT_TRIGGER.getNumber(), Constants.AXIS_BUTTON_THRESHHOLD);
+		joyOuttake.whenPressed(new AutoStraight());
 		
 
         joyClimbUp = new JoystickButton(theXbox, 3);
-        joyClimbUp.whileHeld(new BackIn());
+        joyClimbUp.whenPressed(new BackIn());
 		
         joyClimbDown = new JoystickButton(theXbox, 4);
-        joyClimbDown.whileHeld(new BackOut());
+		joyClimbDown.whenPressed(new BackOut());
+		
+
+		
+        joyClimbUpTwo = new JoystickButton(theXbox, 1);
+		joyClimbUpTwo.whenPressed(new FrontIn());
+		
+		joyClimbDownTwo = new JoystickButton(theXbox, 2);
+		joyClimbDownTwo.whenPressed(new FrontOut());
+		
 		
 //        joyRoombaOut = new JoystickButton(theJoystick, 2);
 //        joyRoombaOut.whileHeld(new roombaOut());

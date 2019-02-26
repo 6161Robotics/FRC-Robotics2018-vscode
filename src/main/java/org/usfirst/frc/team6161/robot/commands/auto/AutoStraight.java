@@ -1,6 +1,7 @@
 package org.usfirst.frc.team6161.robot.commands.auto;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import org.usfirst.frc.team6161.robot.Constants;
 
 /**
  *
@@ -24,7 +25,8 @@ public class AutoStraight extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	addSequential(new DriveAutoForward(4));
+        addSequential(new DriveAutoForward(3));
+        addSequential(new DriveAutoRightTurn(Constants.AUTO_FULL_TURNING_DURATION));
     	
     }
 }

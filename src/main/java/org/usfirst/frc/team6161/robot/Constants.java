@@ -33,6 +33,11 @@ public class Constants {
 	// Turn rotations
 	public static final double RIGHT_TURN_ROTATION = 0.6;
 	public static final double LEFT_TURN_ROTATION = -0.6;	
+
+	
+	public static final double IN_SOLE_TIME = 0.5;
+	public static final double OUT_SOLE_TIME = 2;
+	
 	
 	
 }
