@@ -61,6 +61,7 @@ fourthSolenoid.set(DoubleSolenoid.Value.kReverse);
 }
 
 public void frontOutSole(){
+  secondSolenoid.set(true);
   fourthSolenoid.set(DoubleSolenoid.Value.kForward);
   }
 

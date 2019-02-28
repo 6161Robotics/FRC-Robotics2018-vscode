@@ -48,16 +48,16 @@ public class OI {
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
 
-	public JoystickButton joyClimbUp;
-	public JoystickButton joyClimbDown;
-	public JoystickButton joyClimbUpTwo;
-	public JoystickButton joyClimbDownTwo;
-	public JoystickButton joySlideForwards;
-	public JoystickButton joySlideBackwards;
-	public JoystickButton joySlideDownwards;
-	public JoystickButton joySlideUpwards;
-	public AxisButton joyIntake;
-	public AxisButton joyOuttake;
+	public JoystickButton joyBackIn;
+	public JoystickButton joyBackOut;
+	public JoystickButton joyFrontIn;
+	public JoystickButton joyFrontOut;
+	public JoystickButton joyPvcOut;
+	public JoystickButton joyPvcIn;
+	public AxisButton joySliderOut;
+	public AxisButton joySliderIn;
+	public AxisButton joyDpadUp;
+	public AxisButton joyDpadDwn;
 
 	public Joystick theXbox;
 	public Joystick theJoystick;
@@ -67,50 +67,47 @@ public class OI {
 		theJoystick = new Joystick(1);
 		
 
-		joySlideBackwards = new JoystickButton(theXbox, 7);
-        joySlideBackwards.whenPressed(new SliderSolenoid());
+	/*	joySlideBackwards = new JoystickButton(theXbox, /);
+        joySlideBackwards.whenPressed(new /());
 		
-        joySlideForwards = new JoystickButton(theXbox, 8);
-        joySlideForwards.whenPressed(new Defense());  
+        joySlideForwards = new JoystickButton(theXbox, /);
+        joySlideForwards.whenPressed(new /());  
+      */  
+        joyPvcIn = new JoystickButton(theXbox, 5);
+        joyPvcIn.whenPressed(new PvcSolenoid());
         
-        joySlideUpwards = new JoystickButton(theXbox, 5);
-        joySlideUpwards.whenPressed(new PvcSolenoid());
-        
-        joySlideDownwards = new JoystickButton(theXbox, 6);
-        joySlideDownwards.whenPressed(new PvcOut());
+        joyPvcOut = new JoystickButton(theXbox, 6);
+        joyPvcOut.whenPressed(new PvcOut());
 		
-        //joyIntake = new AxisButton(theXbox, Gamepad.Axes.RIGHT_TRIGGER.getNumber(), Constants.AXIS_BUTTON_THRESHHOLD);
-        //joyIntake.whileHeld(new InSole());
+        joySliderOut = new AxisButton(theXbox, Gamepad.Axes.RIGHT_TRIGGER.getNumber(), Constants.AXIS_BUTTON_THRESHHOLD);
+        joySliderOut.whileHeld(new SliderSolenoid());
         
-       joyOuttake = new AxisButton(theXbox, Gamepad.Axes.LEFT_TRIGGER.getNumber(), Constants.AXIS_BUTTON_THRESHHOLD);
-		//joyOuttake.whenPressed(new ());
+       joySliderIn = new AxisButton(theXbox, Gamepad.Axes.LEFT_TRIGGER.getNumber(), Constants.AXIS_BUTTON_THRESHHOLD);
+		joySliderIn.whenPressed(new Defense());
+		
+		joyDpadUp = new AxisButton(theXbox, Gamepad.Axes.D_PAD_VERTICAL.getNumber(), 1);
+		joyDpadUp.whenPressed(new SliderSolenoid());
+		
+		joyDpadDwn = new AxisButton(theXbox, Gamepad.Axes.D_PAD_VERTICAL.getNumber(), -1);
+
+
+
+        joyBackIn = new JoystickButton(theXbox, 4);
+        joyBackIn.whenPressed(new BackIn());
+		
+        joyBackOut = new JoystickButton(theXbox, 3);
+		joyBackOut.whenPressed(new BackOut());
 		
 
-        joyClimbUp = new JoystickButton(theXbox, 3);
-        joyClimbUp.whenPressed(new BackIn());
 		
-        joyClimbDown = new JoystickButton(theXbox, 4);
-		joyClimbDown.whenPressed(new BackOut());
+        joyFrontIn = new JoystickButton(theXbox, 7);
+		joyFrontIn.whenPressed(new FrontIn());
 		
+		joyFrontOut = new JoystickButton(theXbox, 8);
+		joyFrontOut.whenPressed(new FrontOut());
 
-		
-        joyClimbUpTwo = new JoystickButton(theXbox, 1);
-		joyClimbUpTwo.whenPressed(new FrontIn());
-		
-		joyClimbDownTwo = new JoystickButton(theXbox, 2);
-		joyClimbDownTwo.whenPressed(new FrontOut());
-		
-		
-//        joyRoombaOut = new JoystickButton(theJoystick, 2);
-//        joyRoombaOut.whileHeld(new roombaOut());
-		
-//        joyRoombaIn = new JoystickButton(theJoystick, 1);
-//        joyRoombaIn.whileHeld(new roombaIn());
         
 	}
-
-
-
 
 	//a method for the joystick
 	public Joystick getTheJoystick() {

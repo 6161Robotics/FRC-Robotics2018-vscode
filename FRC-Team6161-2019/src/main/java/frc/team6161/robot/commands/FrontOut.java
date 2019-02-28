@@ -26,7 +26,6 @@ public class FrontOut extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    //Robot.solenoidBase.sliderOutSole();
     Robot.solenoidBase.frontOutSole();
   }
 
