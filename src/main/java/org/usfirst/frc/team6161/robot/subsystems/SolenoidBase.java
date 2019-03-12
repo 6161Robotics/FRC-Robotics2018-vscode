@@ -14,6 +14,12 @@ import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
+/*----------------------------------------------------------------------------*/
+/* Copyright (c) 2018 FIRST. All Rights Reserved.                             */
+/* Open Source Software - may be modified and shared by FRC teams. The code   */
+/* must be accompanied by the FIRST BSD license file in the root directory of */
+/* the project.                                                               */
+/*----------------------------------------------------------------------------*/
 
 /**
  * Add your docs here.
@@ -25,14 +31,14 @@ private Compressor compressor;
 private Solenoid firstSolenoid;
 private Solenoid secondSolenoid;
 private Solenoid thirdSolenoid;
-private DoubleSolenoid fourthSolenoid;
+private Solenoid fourthSolenoid;
 
   public void init() {
     
     firstSolenoid = new Solenoid(0);
     secondSolenoid = new Solenoid(1);
     thirdSolenoid = new Solenoid(2);
-    fourthSolenoid = new DoubleSolenoid(3, 4);
+    fourthSolenoid = new Solenoid(3);
 
     //fourthSolenoid.set(Value.kOff);
     compressor = new Compressor(0);
@@ -59,17 +65,20 @@ firstSolenoid.set(true);
 }
 
 public void frontInSole(){
-fourthSolenoid.set(DoubleSolenoid.Value.kReverse);
+fourthSolenoid.set(false);
+//fourthSolenoid.set(DoubleSolenoid.Value.kReverse);
 }
 
 public void frontOutSole(){
-  fourthSolenoid.set(DoubleSolenoid.Value.kForward);
+  secondSolenoid.set(true);
+ // fourthSolenoid.set(DoubleSolenoid.Value.kForward);
+ fourthSolenoid.set(true);
   }
 
-public void offSole(){
+/*public void offSole(){
   fourthSolenoid.set(DoubleSolenoid.Value.kOff);
     }
-
+*/
 public void sliderInSole(){
   secondSolenoid.set(false);
 }

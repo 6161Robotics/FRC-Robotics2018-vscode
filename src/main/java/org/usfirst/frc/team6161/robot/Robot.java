@@ -19,13 +19,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //import com.analog.adis16448.frc.ADIS16448_IMU;
 
 import org.usfirst.frc.team6161.robot.subsystems.*;
-import org.usfirst.frc.team6161.robot.commands.auto.AutoNothing;
-import org.usfirst.frc.team6161.robot.commands.auto.AutoStartCenter;
-import org.usfirst.frc.team6161.robot.commands.auto.AutoStartLeft;
-import org.usfirst.frc.team6161.robot.commands.auto.AutoStartRight;
-// TODO import org.usfirst.frc.team6161.robot.subsystems.AutoDrive;
 
-import org.usfirst.frc.team6161.robot.commands.auto.AutoStraight;
 
 
 /**
@@ -40,13 +34,9 @@ public class Robot extends IterativeRobot {
 
 	//	public static final ADIS16448_IMU imu = new ADIS16448_IMU();
 	public static final DriveBase driveBase = new DriveBase();
-//	TODO is this nessary?	public static final AutoDrive autoDrive = new AutoDrive();
-//	public static final climberBase climberBase = new climberBase();
-	public static final SliderBase SliderBase = new SliderBase();
-	public static final DumpBase DumpBase = new DumpBase();
-	public static final ArmsBase ArmsBase = new ArmsBase();
+
 	public static final SolenoidBase solenoidBase = new SolenoidBase();
-//	public static final roombaBase roombaBase = new roombaBase();
+
 	public static OI oi;
 	
 	PowerDistributionPanel pdp; 
@@ -65,22 +55,11 @@ public class Robot extends IterativeRobot {
 		pdp = new PowerDistributionPanel();
 		
 
-		// Add Commands to show in Autonomous drop-down on Smart Dashboard
-		chooser.addDefault("'Small Forward'", new AutoNothing());
-		chooser.addDefault("Forwards", new AutoStraight());
-		chooser.addObject("Auto Start Left", new AutoStartLeft());
-		chooser.addObject("Auto Start Right", new AutoStartRight());
-		chooser.addObject("Auto Start Center", new AutoStartCenter());
-		SmartDashboard.putData("Autonomous Scenarios", chooser);
-		
+
 		
 		driveBase.init();
-//		climberBase.init();
-		DumpBase.init();
-		SliderBase.init();
-		ArmsBase.init();
 		solenoidBase.init();
-//		roombaBase.init();
+
 		// call other subsystem inits here
 			}
 
@@ -170,12 +149,9 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-
-		
-		autonomousCommand = chooser.getSelected();
 		
 		if (autonomousCommand != null)
-			autonomousCommand.start();
+		Robot.driveBase.drivewithXbox();
 	}
 
 	/**
@@ -190,7 +166,7 @@ public class Robot extends IterativeRobot {
 	public void teleopInit() {
 		
 		if (autonomousCommand != null)
-			autonomousCommand.cancel();
+		Robot.driveBase.drivewithXbox();
 //		imu.reset();
 	}
 

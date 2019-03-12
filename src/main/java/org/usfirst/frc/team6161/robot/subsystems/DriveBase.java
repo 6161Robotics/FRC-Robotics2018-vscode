@@ -85,10 +85,7 @@ public class DriveBase extends Subsystem {
 	public void Forward(){
     	the4Motors.arcadeDrive(-autoSpeed, 0);
     }
-    public void AutoForward(){
- //   	autonomous();
-    	the4Motors.arcadeDrive((-autoSpeed*0.75), 0);
-    }
+    
     public void SlowForward(){
     	the4Motors.arcadeDrive((-autoSpeed*0.68), 0);//mid gear
     }
