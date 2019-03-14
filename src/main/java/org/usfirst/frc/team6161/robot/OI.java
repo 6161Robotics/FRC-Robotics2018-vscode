@@ -91,11 +91,11 @@ public class OI {
        joySliderIn = new AxisButton(theXbox, Gamepad.Axes.LEFT_TRIGGER.getNumber(), Constants.AXIS_BUTTON_THRESHHOLD);
 		joySliderIn.whenPressed(new Defense());
 		
-		joyDpadUp = new AxisButton(theXbox, Gamepad.Axes.D_PAD_VERTICAL.getNumber(), 1);
+	/*	joyDpadUp = new AxisButton(theXbox, Gamepad.Axes.D_PAD_VERTICAL.getNumber(), 1);
 		joyDpadUp.whenPressed(new SliderSolenoid());
 		
 		joyDpadDwn = new AxisButton(theXbox, Gamepad.Axes.D_PAD_VERTICAL.getNumber(), -1);
-
+*/
 
 
         joyBackIn = new JoystickButton(theXbox, 4);

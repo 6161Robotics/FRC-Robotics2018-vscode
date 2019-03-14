@@ -36,9 +36,9 @@ private Solenoid fourthSolenoid;
   public void init() {
     
     firstSolenoid = new Solenoid(0);
-    secondSolenoid = new Solenoid(1);
+    secondSolenoid = new Solenoid(3);
     thirdSolenoid = new Solenoid(2);
-    fourthSolenoid = new Solenoid(3);
+    fourthSolenoid = new Solenoid(1);
 
     //fourthSolenoid.set(Value.kOff);
     compressor = new Compressor(0);
@@ -70,7 +70,7 @@ fourthSolenoid.set(false);
 }
 
 public void frontOutSole(){
-  secondSolenoid.set(true);
+  secondSolenoid.set(false);
  // fourthSolenoid.set(DoubleSolenoid.Value.kForward);
  fourthSolenoid.set(true);
   }
@@ -80,11 +80,11 @@ public void frontOutSole(){
     }
 */
 public void sliderInSole(){
-  secondSolenoid.set(false);
+  secondSolenoid.set(true);
 }
 
 public void sliderOutSole(){
-  secondSolenoid.set(true);
+  secondSolenoid.set(false);
 }
 
 public void backInSole(){
