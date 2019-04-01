@@ -36,9 +36,9 @@ private Solenoid fourthSolenoid;
   public void init() {
     
     firstSolenoid = new Solenoid(0);
-    secondSolenoid = new Solenoid(3);
+    secondSolenoid = new Solenoid(1);
     thirdSolenoid = new Solenoid(2);
-    fourthSolenoid = new Solenoid(1);
+    fourthSolenoid = new Solenoid(4);
 
     //fourthSolenoid.set(Value.kOff);
     compressor = new Compressor(0);
