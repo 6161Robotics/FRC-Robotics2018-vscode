@@ -17,7 +17,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 //import com.analog.adis16448.frc.ADIS16448_IMU;
-
+import org.usfirst.frc.team6161.robot.commands.auto.*;
 import org.usfirst.frc.team6161.robot.subsystems.*;
 
 
@@ -54,7 +54,10 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		pdp = new PowerDistributionPanel();
 		
-
+		chooser.addDefault("TeleOp", new AutoTele());
+		chooser.addObject("Hab Drop Left", new AutoLeft());
+		chooser.addObject("Hab Drop Right", new AutoRight());
+		SmartDashboard.putData("Autonomous Scenarios", chooser);
 
 		
 		driveBase.init();
@@ -150,8 +153,10 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousInit() {
 		
+		autonomousCommand = chooser.getSelected();
 		if (autonomousCommand != null)
-		Robot.driveBase.drivewithXbox();
+			autonomousCommand.start();
+		
 	}
 
 	/**
@@ -160,13 +165,15 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
-		Robot.driveBase.drivewithXbox();
+		
 	}
 
 	@Override
 	public void teleopInit() {
 		
 		if (autonomousCommand != null)
+		autonomousCommand.cancel();
+
 		Robot.driveBase.drivewithXbox();
 //		imu.reset();
 	}
