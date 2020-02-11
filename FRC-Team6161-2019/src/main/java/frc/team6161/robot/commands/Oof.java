@@ -10,10 +10,10 @@ package frc.team6161.robot.commands;
 import frc.team6161.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.command.WaitCommand;
 
-public class SliderSolenoid extends Command {
-  public SliderSolenoid() {
+
+public class Oof extends Command {
+  public Oof() {
     requires(Robot.solenoidBase);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
@@ -28,23 +28,11 @@ public class SliderSolenoid extends Command {
   @Override
   protected void execute() {
     Robot.solenoidBase.sliderOutSole();
-    System.out.print("Commencing Special Sauce:");
-
-    for(int i=0; i<875; i++){
-      System.out.print(i);
-    }
-    
-    Robot.solenoidBase.sliderInSole();
-
-    /*for(int i=0; i<20000; i++){
-      System.out.print(i);
-      System.out.print(" lmao, im closed ");
-    }*/
   }
 
   @Override
   protected boolean isFinished() {
-    return true;
+    return false;
   }
 
   @Override

@@ -36,7 +36,7 @@ public class DriveBase extends Subsystem {
     }
     public void drivewithXbox(){
     	if (Robot.oi.getTheJoystick().getRawButton(3)){
-    		Robot.driveBase.getRobotDrive().arcadeDrive(Robot.oi.theXbox.getRawAxis(1), Robot.oi.theXbox.getRawAxis(4));
+    		Robot.driveBase.getRobotDrive().arcadeDrive(Robot.oi.theXbox.getRawAxis(1), Robot.oi.theXbox.getRawAxis(2));
     		return;
     	}
     	
@@ -56,7 +56,7 @@ public class DriveBase extends Subsystem {
     	}
 		Robot.driveBase.getRobotDrive().arcadeDrive(lastForward, lastTurn);
 				Before---^    	 */
-    	Robot.driveBase.getRobotDrive().arcadeDrive(lastForward, -Robot.oi.theXbox.getRawAxis(4));
+    	Robot.driveBase.getRobotDrive().arcadeDrive(-lastForward, -Robot.oi.theXbox.getRawAxis(2));
     }
    
 /*       double Kp = 0.03;

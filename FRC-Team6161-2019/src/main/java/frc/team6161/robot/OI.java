@@ -72,39 +72,84 @@ public class OI {
 		
         joySlideForwards = new JoystickButton(theXbox, /);
         joySlideForwards.whenPressed(new /());  
-      */  
+	  */  
+	  
         joyPvcIn = new JoystickButton(theXbox, 5);
-        joyPvcIn.whenPressed(new PvcSolenoid());
-        
+        joyPvcIn.whenPressed(new Defense());
+        //incline boi
         joyPvcOut = new JoystickButton(theXbox, 6);
-        joyPvcOut.whenPressed(new PvcOut());
+		joyPvcOut.whenPressed(new SliderSolenoid());
+		//incline boi
 		
-        joySliderOut = new AxisButton(theXbox, Gamepad.Axes.RIGHT_TRIGGER.getNumber(), Constants.AXIS_BUTTON_THRESHHOLD);
-        joySliderOut.whileHeld(new SliderSolenoid());
+        //joySliderOut = new AxisButton(theXbox, Gamepad.Axes.RIGHT_TRIGGER.getNumber(), Constants.AXIS_BUTTON_THRESHHOLD);
+		//joySliderOut.whileActive(new SliderSolenoid());
+		//joySliderOut.whenPressed(new SliderSolenoid());
         
-       joySliderIn = new AxisButton(theXbox, Gamepad.Axes.LEFT_TRIGGER.getNumber(), Constants.AXIS_BUTTON_THRESHHOLD);
-		joySliderIn.whenPressed(new Defense());
+       //joySliderIn = new AxisButton(theXbox, Gamepad.Axes.LEFT_TRIGGER.getNumber(), Constants.AXIS_BUTTON_THRESHHOLD);
+		//joySliderIn.whenPressed(new Defense());
 		
-		joyDpadUp = new AxisButton(theXbox, Gamepad.Axes.D_PAD_VERTICAL.getNumber(), 1);
-		joyDpadUp.whenPressed(new SliderSolenoid());
-		
-		joyDpadDwn = new AxisButton(theXbox, Gamepad.Axes.D_PAD_VERTICAL.getNumber(), -1);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		//TODO: what is this 
+		//joyDpadUp = new AxisButton(theXbox, Gamepad.Axes.D_PAD_VERTICAL.getNumber(), 1);
+		//joyDpadUp.whenPressed(new SliderSolenoid());
+		//joyDpadDwn = new AxisButton(theXbox, Gamepad.Axes.D_PAD_VERTICAL.getNumber(), -1);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
         joyBackIn = new JoystickButton(theXbox, 4);
-        joyBackIn.whenPressed(new BackIn());
+        joyBackIn.whenPressed(new Oof());
 		
-        joyBackOut = new JoystickButton(theXbox, 3);
-		joyBackOut.whenPressed(new BackOut());
+        //joyBackOut = new JoystickButton(theXbox, 3);
+		//joyBackOut.whenPressed(new BackOut());
 		
 
 		
-        joyFrontIn = new JoystickButton(theXbox, 7);
-		joyFrontIn.whenPressed(new FrontIn());
+        //joyFrontIn = new JoystickButton(theXbox, 7);
+		//joyFrontIn.whenPressed(new FrontIn());
 		
-		joyFrontOut = new JoystickButton(theXbox, 8);
-		joyFrontOut.whenPressed(new FrontOut());
+		//joyFrontOut = new JoystickButton(theXbox, 8);
+		//joyFrontOut.whenPressed(new FrontOut());
 
         
 	}
